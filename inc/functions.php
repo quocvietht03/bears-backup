@@ -321,7 +321,7 @@ if( ! function_exists('BBACKUP_Backup_Folder_Upload') ) {
       'st' => 'OK',
       'handle_name' => 'bbackup_backup_folder_upload',
       'progress' => 90,
-      'folder' => $folders,
+      'folder' => '', //$folders,
       'message' => __('Backup folder upload success.', 'bears-backup'),
     );
 
