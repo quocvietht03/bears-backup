@@ -1,0 +1,9 @@
+-- 1.0.2 --
++ PHP increase Memory, Upload Max Size, Post Max Size = 512M step backup folder upload
+
+-- 1.0.1 --
++ Update PHP Class Dump & Import Database use $wpdb
++ Fix PHP issue
+
+-- 1.0 --
++ Released

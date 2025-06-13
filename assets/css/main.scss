@@ -1,0 +1,195 @@
+.bbackup-panel-wrap {
+    .el-button {
+        transition: 0.3s ease;
+        -webkit-transition: 0.3s ease;
+    }
+    .panel-inner {
+        padding: 15px;
+    }
+}
+
+.panel-heading {
+    margin-bottom: 15px;
+    h2 {
+        margin: 0 0 15px;
+        padding-bottom: 15px;
+        border-bottom: solid 1px #e3e3e3;
+        font-weight: 300;
+        font-size: 2.5em;
+        line-height: 1em;
+    }
+    padding: 15px;
+    background: #fff;
+}
+
+.panel-body {
+    padding: 15px;
+    background: #fff;
+}
+
+.bbackup-backup-step-bar {
+    margin-bottom: 30px;
+    background: #fafafa;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    .el-steps {
+        padding: 30px;
+    }
+    .progress-bar-action {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transition: 0.3s ease;
+        -webkit-transition: 0.3s ease;
+        opacity: 0.1;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8d59ff+0,00ffcb+100 */
+        background: #8d59ff;
+        /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #8d59ff 0%, #00ffcb 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #8d59ff 0%, #00ffcb 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #8d59ff 0%, #00ffcb 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8d59ff', endColorstr='#00ffcb',GradientType=1 );
+        /* IE6-9 fallback on horizontal gradient */
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 500px;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100;White+to+Transparent */
+            background: -moz-linear-gradient(
+                left,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            );
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+                left,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            );
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 100%
+            );
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+            /* IE6-9 */
+            animation: bbackup-progress-bar-animate 1s infinite;
+            -webkit-animation: bbackup-progress-bar-animate 1s infinite;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+        }
+    }
+}
+
+@keyframes bbackup-progress-bar-animate {
+    0% {
+        left: -500px;
+        opacity: 0.3;
+    }
+
+    100% {
+        left: calc(100% + 500px);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes bbackup-progress-bar-animate {
+    0% {
+        left: -500px;
+        opacity: 0.3;
+    }
+
+    100% {
+        left: calc(100% + 500px);
+        opacity: 1;
+    }
+}
+
+.bbackup-button-action .button {
+    display: inline-block;
+    border: none;
+    border-radius: 0;
+    background: #333;
+    color: #fff;
+}
+
+/* style table */
+
+.bbackup-table {
+    border: none;
+    &:after,
+    &:before {
+        background: transparent;
+    }
+    td {
+        padding: 20px 0;
+    }
+    thead {
+        th,
+        div {
+            background: none;
+        }
+    }
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+    &.el-table {
+        .is-process-row {
+            opacity: 0.1;
+            animation: is_process_row_anim 1s infinite;
+            -webkit-animation: is_process_row_anim 1s infinite;
+        }
+        .is-new-row {
+            background: #ebf5ff;
+        }
+    }
+}
+
+@keyframes is_process_row_anim {
+    0% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    0% {
+        opacity: 0.1;
+    }
+}
+
+@-webkit-keyframes is_process_row_anim {
+    0% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    0% {
+        opacity: 0.1;
+    }
+}
+
+.bbackup-upload-file{
+    width: 300px;
+    display: inline-block;
+    margin-left: 13px;
+    vertical-align: top;
+}
+
+// .bbackup-button-backup-now{
+//     padding: 17px 31px;
+// }

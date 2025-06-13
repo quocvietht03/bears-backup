@@ -1,0 +1,6 @@
+{
+    "require": {
+        "nelexa/zip": "^3.1",
+        "naucon/file": "^1.0"
+    }
+}
