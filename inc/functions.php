@@ -112,6 +112,15 @@ if( ! function_exists('BBACKUP_Delete_Folder_Backup') ) {
    * Delete folder backup by folder name
    */
   function BBACKUP_Delete_Folder_Backup($data = array( 'backup_folder' => 'NAME_FOLDER_BACKUP_HERE' )) {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Delete_Folder_Backup_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     global $wp_filesystem;
 
     if (empty($wp_filesystem)) {
@@ -156,6 +165,15 @@ if( ! function_exists('BBACKUP_Load_Backup_Data') ) {
    * get all folder backup 
    */
   function BBACKUP_Load_Backup_Data() {
+    
+    # nonce verify
+    $nonce_name = 'BBACKUP_Load_Backup_Data_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     if( ! is_dir( BBACKUP_UPLOAD_PATH ) ) {
       wp_send_json( array() ); return;
     }
@@ -184,6 +202,15 @@ if( ! function_exists('BBACKUP_Backup_Database') ) {
    * @param {array} $params
    */
   function BBACKUP_Backup_Database($params = array(), $return_type = 'json') {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Backup_Database_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     global $wpdb;
     // $wpdb->flush(); // Kill cached query results.
 
@@ -257,6 +284,15 @@ if(! function_exists('BBACKUP_Create_File_Config')) {
    * Create file conf
    */
   function BBACKUP_Create_File_Config($data, $return_type = 'json') {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Create_File_Config_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     global $wp_filesystem;
 
     // protect if the the global filesystem isn't setup yet
@@ -305,6 +341,15 @@ if( ! function_exists('BBACKUP_Backup_Folder_Upload') ) {
    * Backup folder upload
    */
   function BBACKUP_Backup_Folder_Upload($data, $return_type = 'json') {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Backup_Folder_Upload_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     $backup_folder_name = $data['bk_folder_name'];
     $uploads_path = WP_CONTENT_DIR . '/' . 'uploads';
     $files_bk_name = '_f';
@@ -339,6 +384,14 @@ if(! function_exists('BBACKUP_Download_Backup')) {
    */
   function BBACKUP_Download_Backup($params = array()) {
 
+    # nonce verify
+    $nonce_name = 'BBACKUP_Download_Backup_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     // increase memory 256MB
     ini_set('memory_limit', '512M');
 
@@ -366,6 +419,15 @@ if(! function_exists('BBACKUP_Restore_Data')) {
    * @param {array} $data
    */
   function BBACKUP_Restore_Data($data, $return_type = 'json') {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Restore_Data_' . get_current_user_id();
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     extract($data);
 
     if ( ! is_dir( $backup_path_file ) ) return;

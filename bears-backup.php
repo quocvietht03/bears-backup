@@ -107,13 +107,25 @@ if(! class_exists('Bears_Backup') ) {
       wp_enqueue_style( 'bears_backup_style', plugins_url( '/assets/css/bears-backup.backend.css', __FILE__ ), array(), BBACKUP_VERSION, 'all' );
       wp_enqueue_script( 'bears_backup_script', plugins_url( '/assets/js/bears-backup.bundle.js', __FILE__ ), array('jquery'), BBACKUP_VERSION, true );
 
+      # user current id 
+      $user_id = get_current_user_id();
+
       wp_localize_script( 'bears_backup_script', 'bbackup_object', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         /**
          * nonce for ajax
          * security
          */
-        'nonce'    => wp_create_nonce( 'bears_backup_nonce' ),
+        'nonce'    => wp_create_nonce( 'bears_backup_nonce_' . $user_id ),
+        'nonce__BBACKUP_Backup_Database' => wp_create_nonce( 'BBACKUP_Backup_Database_' . $user_id ),
+        'nonce__BBACKUP_Delete_Folder_Backup' => wp_create_nonce( 'BBACKUP_Delete_Folder_Backup_' . $user_id ),
+        'nonce__BBACKUP_Create_File_Config' => wp_create_nonce( 'BBACKUP_Create_File_Config_' . $user_id ),
+        'nonce__BBACKUP_Backup_Folder_Upload' => wp_create_nonce( 'BBACKUP_Backup_Folder_Upload_' . $user_id ),
+        'nonce__BBACKUP_Load_Backup_Data' => wp_create_nonce( 'BBACKUP_Load_Backup_Data_' . $user_id ),
+        'nonce__BBACKUP_Upload_File_Backup' => wp_create_nonce( 'BBACKUP_Upload_File_Backup_' . $user_id ),
+        'nonce__BBACKUP_Restore_Data' => wp_create_nonce( 'BBACKUP_Restore_Data_' . $user_id ),
+        'nonce__BBACKUP_Download_Backup' => wp_create_nonce( 'BBACKUP_Download_Backup_' . $user_id ),
+
         // language
         'language' => array( )
       ) );
