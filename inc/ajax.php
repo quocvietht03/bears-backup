@@ -29,7 +29,7 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
     exit();
   }
   add_action( 'wp_ajax_BBACKUP_Ajax_Handle', 'BBACKUP_Ajax_Handle' );
-  add_action( 'wp_ajax_nopriv_BBACKUP_Ajax_Handle', 'BBACKUP_Ajax_Handle' );
+  // add_action( 'wp_ajax_nopriv_BBACKUP_Ajax_Handle', 'BBACKUP_Ajax_Handle' );
 }
 
 if(! function_exists('BBACKUP_Upload_File_Backup')) {
