@@ -6,13 +6,20 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
    */
   function bbackup_ajax_handle() {
 
+    # nonce verify
+    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'bears_backup_nonce' ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     /**
      * Fix issue security
      * verify only admin can access
      */
     if( ! current_user_can( 'manage_options' ) ) {
       wp_send_json_error( 'You are not authorized to access this page.' );
-      exit();
+      exit(); 
     }
     /** End fix issue security */
 
