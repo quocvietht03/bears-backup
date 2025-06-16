@@ -10,11 +10,14 @@ module.exports = {
     var _o = $.extend({
       type: 'POST',
       url: bbackup_object.ajax_url,
-      data: {},
+      data: {}, 
       success: function() { return; },
       error: function(e) { console.log( 'error: ' + e ); },
     }, opts);
 
-    return $.ajax(_o);
+    _o.data = { ..._o.data, nonce: bbackup_object.nonce };
+
+    return $.ajax(_o); 
   },
 }
+
