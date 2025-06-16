@@ -7,10 +7,10 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
   function bbackup_ajax_handle() {
 
     # nonce verify
-    if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'bears_backup_nonce' ) ) {
-      wp_send_json_error( 'Invalid nonce.' );
-      exit();
-    }
+    // if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'bears_backup_nonce' ) ) {
+    //   wp_send_json_error( 'Invalid nonce.' );
+    //   exit();
+    // }
     # end nonce verify
 
     /**
@@ -44,6 +44,15 @@ if(! function_exists('BBACKUP_Upload_File_Backup')) {
    * @since 1.0.0 
    */
   function BBACKUP_Upload_File_Backup() {
+
+    # nonce verify
+    $nonce_name = 'BBACKUP_Upload_File_Backup_' . get_current_user_id();
+    if( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], $nonce_name ) ) {
+      wp_send_json_error( 'Invalid nonce.' );
+      exit();
+    }
+    # end nonce verify
+
     /**
       * Fix issue security
       * verify only admin can access
@@ -82,7 +91,7 @@ if(! function_exists('BBACKUP_Upload_File_Backup')) {
     $upload_overrides = array( 
       'test_form' => false,
       'mimes' => array(
-        'zip' => array('application/zip+octet-stream'),
+        'zip' => 'application/zip+octet-stream',
       ),
     );
 

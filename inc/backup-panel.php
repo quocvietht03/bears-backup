@@ -57,7 +57,7 @@ if( ! class_exists('BBACKUP_Backup_Panel') ) {
                 :before-upload="BeforUploadBackup" 
                 :on-success="UploadBackupSuccess"
                 :file-list="bbackup_upload_filelist"
-                action="<?php echo add_query_arg( array( 'action' => 'BBACKUP_Upload_File_Backup' ), admin_url( 'admin-ajax.php' ) ); ?>">
+                action="<?php echo add_query_arg( array( 'action' => 'BBACKUP_Upload_File_Backup', 'nonce' => wp_create_nonce( 'BBACKUP_Upload_File_Backup' ) ), admin_url( 'admin-ajax.php' ) ); ?>">
                 <el-tooltip content="<?php echo 'Maximum upload file size: ' . ini_get("upload_max_filesize"); ?>" placement="bottom">
                   <el-button >Upload Backup (.zip)</el-button>
                 </el-tooltip>
