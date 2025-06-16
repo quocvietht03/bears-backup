@@ -5,6 +5,17 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
    * Ajax handle processes
    */
   function bbackup_ajax_handle() {
+
+    /**
+     * Fix issue security
+     * verify only admin can access
+     */
+    if( ! current_user_can( 'manage_options' ) ) {
+      wp_send_json_error( 'You are not authorized to access this page.' );
+      exit();
+    }
+    /** End fix issue security */
+
     $data = array_merge(array(
       'handle' => '',
       'params' => '',
