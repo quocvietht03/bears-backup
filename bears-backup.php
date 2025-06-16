@@ -109,9 +109,10 @@ if(! class_exists('Bears_Backup') ) {
 
       wp_localize_script( 'bears_backup_script', 'bbackup_object', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
-        'language' => array(
-
-        )
+        // nonce
+        'nonce'    => wp_create_nonce( 'bears_backup_nonce' ),
+        // language
+        'language' => array( )
       ) );
     }
 
