@@ -1,3 +1,8 @@
+-- 2.0.2 --
++ Security Update
++ Added Nonce for AJAX Requests
++ User Role Check for DB, Backup, and Restore Functions
+
 -- 1.0.2 --
 + PHP increase Memory, Upload Max Size, Post Max Size = 512M step backup folder upload
 

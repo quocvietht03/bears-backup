@@ -3,7 +3,7 @@
  * Plugin Name: Bears Backup
  * Plugin URI: http://bearsthemes/
  * Description: Great plugin helpfull for backup (database, media), create and import dummy data.
- * Version: 2.0.1
+ * Version: 2.0.2
  * Author: Bearsthemes
  * Author URI: http://bearsthemes.com/
  * Text Domain: bears-backup
@@ -40,7 +40,7 @@ if(! class_exists('Bears_Backup') ) {
 
     public function defined()
     {
-      define( "BBACKUP_VERSION", '2.0.1' );
+      define( "BBACKUP_VERSION", '2.0.2' );
       define( "BBACKUP_DIR_PATH", plugin_dir_path( __FILE__ ) );
       define( "BBACKUP_DIR_URL", plugin_dir_url( __FILE__ ) );
       define( "BBACKUP_UPLOAD_PATH", $this->upload_path() );
