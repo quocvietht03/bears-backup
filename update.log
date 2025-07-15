@@ -1,5 +1,7 @@
 -- 2.1.0 --
-+ Fixed security import functions
++ Security Update
++ Added Nonce for AJAX Requests
++ User Role Check for DB, Backup, and Restore Functions
 
 -- 2.0.0 --
 + Fixed import compatible with Give plugin
