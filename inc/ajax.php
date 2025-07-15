@@ -6,8 +6,6 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
    */
   function bbackup_ajax_handle() {
 
-<<<<<<< HEAD
-=======
     # nonce verify
     $nonce = isset($_POST['nonce']) ? sanitize_key($_POST['nonce']) : '';
     if(empty($nonce)) { wp_send_json( 'Empty nonce.' ); }
@@ -21,7 +19,6 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
     // wp_send_json( $_POST );
     # end nonce verify
 
->>>>>>> develop
     /**
      * Fix issue security
      * verify only admin can access
