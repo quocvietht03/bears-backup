@@ -1,14 +1,46 @@
--- 2.0.2 --
-+ Security Update
-+ Added Nonce for AJAX Requests
-+ User Role Check for DB, Backup, and Restore Functions
+# Bears Backup - Change Log
 
--- 1.0.2 --
-+ PHP increase Memory, Upload Max Size, Post Max Size = 512M step backup folder upload
+## Version 2.0.2 - Security Update
+**Release Date:** Current
 
--- 1.0.1 --
-+ Update PHP Class Dump & Import Database use $wpdb
-+ Fix PHP issue
+### Security Enhancements
+- **Enhanced AJAX Security:** Implemented comprehensive nonce verification for all AJAX requests
+- **User Permission Validation:** Added strict user role checks for database operations
+- **Input Sanitization:** Improved data validation and sanitization processes
+- **Access Control:** Strengthened authorization checks for backup and restore functions
 
--- 1.0 --
-+ Released
+### Bug Fixes
+- Resolved potential security vulnerabilities in AJAX handlers
+- Fixed user permission bypass issues
+- Improved error handling and validation
+
+---
+
+## Version 1.0.2 - Performance Optimization
+**Release Date:** Previous
+
+### Performance Improvements
+- **Memory Management:** Increased PHP memory limit to 512MB for large backup operations
+- **Upload Capacity:** Enhanced upload max size and post max size to 512MB
+- **Backup Processing:** Optimized folder upload step for better performance
+
+---
+
+## Version 1.0.1 - Database Integration
+**Release Date:** Previous
+
+### Core Updates
+- **Database Integration:** Updated PHP classes to use WordPress $wpdb for dump and import operations
+- **Compatibility:** Improved WordPress database compatibility
+- **Bug Fixes:** Resolved various PHP compatibility issues
+
+---
+
+## Version 1.0.0 - Initial Release
+**Release Date:** Initial
+
+### Features
+- Initial plugin release
+- Basic backup and restore functionality
+- Database dump and import capabilities
+- File backup system
