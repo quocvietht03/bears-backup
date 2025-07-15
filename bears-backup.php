@@ -117,8 +117,9 @@ if(! class_exists('Bears_Backup') ) {
          * security
          */
         'nonce'    => wp_create_nonce( 'bears_backup_nonce_' . $user_id ),
-        'nonce__BBACKUP_Backup_Database' => wp_create_nonce( 'BBACKUP_Backup_Database_' . $user_id ),
+        
         'nonce__BBACKUP_Delete_Folder_Backup' => wp_create_nonce( 'BBACKUP_Delete_Folder_Backup_' . $user_id ),
+        'nonce__BBACKUP_Backup_Database' => wp_create_nonce( 'BBACKUP_Backup_Database_' . $user_id ),
         'nonce__BBACKUP_Create_File_Config' => wp_create_nonce( 'BBACKUP_Create_File_Config_' . $user_id ),
         'nonce__BBACKUP_Backup_Folder_Upload' => wp_create_nonce( 'BBACKUP_Backup_Folder_Upload_' . $user_id ),
         'nonce__BBACKUP_Load_Backup_Data' => wp_create_nonce( 'BBACKUP_Load_Backup_Data_' . $user_id ),
