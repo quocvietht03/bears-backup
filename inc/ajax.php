@@ -11,12 +11,10 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
     if(empty($nonce)) { wp_send_json( 'Empty nonce.' ); }
 
     $nonce_name = $_POST['handle'] ? $_POST['handle'] . '_' . get_current_user_id() : 'bears_backup_nonce_' . get_current_user_id();
-    // wp_send_json( $nonce_name );
     if(!wp_verify_nonce( $_POST['nonce'], $nonce_name )) {
       wp_send_json_error( [$_POST['handle'], $nonce_name] );
       exit();
     }
-    // wp_send_json( $_POST );
     # end nonce verify
 
     /**
@@ -33,7 +31,6 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
       'handle' => '',
       'params' => '',
     ), $_POST);
-    // extract( $data );
 
     $handle = $data['handle'];
     $params = $data['params'];
