@@ -102,7 +102,6 @@ if(! class_exists('Bears_Backup') ) {
       wp_enqueue_style( 'element-ui', plugins_url( '/assets/vendor/element-ui/element-ui.css', __FILE__ ), array(), '1.4.6', 'all' );
       wp_enqueue_script( 'element-ui', plugins_url( '/assets/vendor/element-ui/element-ui.js', __FILE__ ), array('vue'), '1.4.6', true );
       wp_enqueue_script( 'element-ui-en', plugins_url( '/assets/vendor/element-ui/element-ui-en.js', __FILE__ ), array('element-ui'), '1.4.6', true );
-      // wp_add_inline_script( 'element-ui-en', 'ELEMENT.locale(ELEMENT.lang.en);' );
 
       wp_enqueue_style( 'bears_backup_style', plugins_url( '/assets/css/bears-backup.backend.css', __FILE__ ), array(), BBACKUP_VERSION, 'all' );
       wp_enqueue_script( 'bears_backup_script', plugins_url( '/assets/js/bears-backup.bundle.js', __FILE__ ), array('jquery'), BBACKUP_VERSION, true );
