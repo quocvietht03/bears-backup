@@ -1,4 +1,10 @@
 <?php
+/**
+ * Fixed GiveWP import issue.
+ *
+ * @author     Bearsthemes
+ * @since      2.0.0
+ */
 include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 if ( is_plugin_active( 'give/give.php' ) && empty(get_option('give_settings')) ) {

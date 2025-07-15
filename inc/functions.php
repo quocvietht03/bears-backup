@@ -55,10 +55,10 @@ if( ! function_exists('BBACKUP_Scandir') ) {
 
 if(! function_exists('BBACKUP_Recurse_Copy')) {
   /**
-   * @since 1.0.0
+   * @since 1.0.2
    */
   function BBACKUP_Recurse_Copy($src, $dst) {
-    // increase memory 256MB
+    // increase memory 512M
     ini_set('memory_limit', '512M');
 
     $dir = opendir($src);
@@ -108,7 +108,7 @@ if(! function_exists('BBACKUP_Get_Upload_Dir_Var')) {
 
 if( ! function_exists('BBACKUP_Delete_Folder_Backup') ) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Delete folder backup by folder name
    */
   function BBACKUP_Delete_Folder_Backup($data = array( 'backup_folder' => 'NAME_FOLDER_BACKUP_HERE' )) {
@@ -161,7 +161,7 @@ if( ! function_exists('BBACKUP_Delete_Folder_Backup') ) {
 
 if( ! function_exists('BBACKUP_Load_Backup_Data') ) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * get all folder backup 
    */
   function BBACKUP_Load_Backup_Data() {
@@ -196,7 +196,7 @@ if( ! function_exists('BBACKUP_Load_Backup_Data') ) {
 
 if( ! function_exists('BBACKUP_Backup_Database') ) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Backup database func
    *
    * @param {array} $params
@@ -212,7 +212,6 @@ if( ! function_exists('BBACKUP_Backup_Database') ) {
     # end nonce verify
 
     global $wpdb;
-    // $wpdb->flush(); // Kill cached query results.
 
     $current_user = wp_get_current_user();
     $upload_dir   = wp_upload_dir();
@@ -235,10 +234,6 @@ if( ! function_exists('BBACKUP_Backup_Database') ) {
       /* backup sql name */
       $backup_file_name = 'database.sql';
 
-      // $db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-      // $dump = new MySQLDump($db);
-
-      // $dump = new BBACKUP_MySQLDump($db);
       $dump = new BBACKUP_MySQLDump($wpdb);
       if( $package_import == true ) {
         $dump->table_exclude = array( $wpdb->prefix . 'users', $wpdb->prefix . 'usermeta' );
@@ -280,7 +275,7 @@ if( ! function_exists('BBACKUP_Backup_Database') ) {
 
 if(! function_exists('BBACKUP_Create_File_Config')) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Create file conf
    */
   function BBACKUP_Create_File_Config($data, $return_type = 'json') {
@@ -337,7 +332,7 @@ if(! function_exists('BBACKUP_Create_File_Config')) {
 
 if( ! function_exists('BBACKUP_Backup_Folder_Upload') ) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Backup folder upload
    */
   function BBACKUP_Backup_Folder_Upload($data, $return_type = 'json') {
@@ -377,7 +372,7 @@ if( ! function_exists('BBACKUP_Backup_Folder_Upload') ) {
 
 if(! function_exists('BBACKUP_Download_Backup')) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Download backup file
    *
    * @param {array} $params
@@ -392,7 +387,7 @@ if(! function_exists('BBACKUP_Download_Backup')) {
     }
     # end nonce verify
 
-    // increase memory 256MB
+    // increase memory 512M
     ini_set('memory_limit', '512M');
 
     // Zip handle
@@ -413,7 +408,7 @@ if(! function_exists('BBACKUP_Download_Backup')) {
 
 if(! function_exists('BBACKUP_Restore_Data')) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Restore data
    *
    * @param {array} $data
@@ -432,7 +427,7 @@ if(! function_exists('BBACKUP_Restore_Data')) {
 
     if ( ! is_dir( $backup_path_file ) ) return;
 
-    // increase memory 256MB
+    // increase memory 512M
     ini_set('memory_limit', '512M');
 
     $upload_dir = wp_upload_dir();
@@ -483,7 +478,7 @@ if(! function_exists('BBACKUP_Clear_Folder_Uploads')) {
       WP_Filesystem();
     }
 
-    // increase memory 256MB
+    // increase memory 512M
     ini_set('memory_limit', '512M');
 
     if( empty($folderInner) ) return;

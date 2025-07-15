@@ -8,7 +8,7 @@ if( ! class_exists('BBACKUP_Backup_Panel') ) {
     }
 
     /**
-     * @since 1.0.0
+     * @since 1.0.2
      * register admin backup panel menu
      */
     public function admin_settings_menu() {
@@ -25,7 +25,7 @@ if( ! class_exists('BBACKUP_Backup_Panel') ) {
     }
 
     /**
-     * @since 1.0.0
+     * @since 1.0.2
      * settings page output html
      */
     public function output() {

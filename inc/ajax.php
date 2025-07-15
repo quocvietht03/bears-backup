@@ -1,17 +1,10 @@
 <?php
 if( ! function_exists('BBACKUP_Ajax_Handle') ) {
   /**
-   * @since 1.0.0
+   * @since 2.1.0
    * Ajax handle processes
    */
   function bbackup_ajax_handle() {
-
-    # nonce verify
-    // if( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'bears_backup_nonce' ) ) {
-    //   wp_send_json_error( 'Invalid nonce.' );
-    //   exit();
-    // }
-    # end nonce verify
 
     /**
      * Fix issue security
@@ -36,12 +29,11 @@ if( ! function_exists('BBACKUP_Ajax_Handle') ) {
     exit();
   }
   add_action( 'wp_ajax_BBACKUP_Ajax_Handle', 'BBACKUP_Ajax_Handle' );
-  // add_action( 'wp_ajax_nopriv_BBACKUP_Ajax_Handle', 'BBACKUP_Ajax_Handle' );
 }
 
 if(! function_exists('BBACKUP_Upload_File_Backup')) {
   /**
-   * @since 1.0.0 
+   * @since 2.1.0
    */
   function BBACKUP_Upload_File_Backup() {
 
@@ -84,9 +76,6 @@ if(! function_exists('BBACKUP_Upload_File_Backup')) {
       wp_send_json_error(sprintf('File size is too large, max size is %sMB', ($max_size / 1024 / 1024)));
       exit();
     }
-
-    // wp_send_json_error( 'test' );
-    // exit();
     
     $upload_overrides = array( 
       'test_form' => false,
@@ -94,9 +83,6 @@ if(! function_exists('BBACKUP_Upload_File_Backup')) {
         'zip' => 'application/zip+octet-stream',
       ),
     );
-
-    // wp_send_json_error( [$file, $upload_overrides] );
-    // exit();
 
     $movefile = wp_handle_upload($file, array(
         'test_form' => false,
@@ -115,5 +101,4 @@ if(! function_exists('BBACKUP_Upload_File_Backup')) {
   }
 
   add_action( 'wp_ajax_BBACKUP_Upload_File_Backup', 'BBACKUP_Upload_File_Backup' );
-  // add_action( 'wp_ajax_nopriv_BBACKUP_Upload_File_Backup', 'BBACKUP_Upload_File_Backup' );
 }

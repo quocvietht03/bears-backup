@@ -4,7 +4,7 @@
  * MySQL database dump loader.
  *
  * @author     Bearsthemes
- * @version    1.0
+ * @version    1.0.1
  */
 class BBACKUP_MySQLImport
 {
